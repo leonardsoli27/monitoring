@@ -224,16 +224,16 @@
     var ctx = document.getElementById("lineChart");
     ctx.height = 150;
     var myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Agu", "Sep", "Okt",
                 "Nov", "Des"
             ],
             datasets: [{
                     label: "Hewan",
-                    borderColor: "rgba(153, 102, 255, 0.9)",
+                    borderColor: "rgba(0,0,0,.09)",
                     borderWidth: "1",
-                    backgroundColor: "rgba(153, 102, 255, 0.5)",
+                    backgroundColor: "rgba(0,0,0,.07)",
                     data: JSON.parse('{!! json_encode($data_domas_hewan) !!}')
                 },
                 {
@@ -269,11 +269,11 @@
             datasets: [{
                 data: ['{{ $f_hewan_domas }}', '{{ $f_tumbuhan_domas  }}'],
                 backgroundColor: [
-                    "rgba(153, 102, 255, 0.9)",
+                    "rgba(0,0,0,.09)",
                     "rgba(0, 194, 146,0.9)",
                 ],
                 hoverBackgroundColor: [
-                    "rgba(153, 102, 255, 0.9)",
+                    "rgba(0,0,0,.09)",
                     "rgba(0, 194, 146,0.9)",
                 ]
 
@@ -297,11 +297,11 @@
             datasets: [{
                 data: ['{{ $r_hewan_domas }}', '{{ $r_tumbuhan_domas  }}'],
                 backgroundColor: [
-                    "rgba(153, 102, 255, 0.9)",
+                    "rgba(0,0,0,.09)",
                     "rgba(0, 194, 146,0.9)",
                 ],
                 hoverBackgroundColor: [
-                    "rgba(153, 102, 255, 0.9)",
+                    "rgba(0,0,0,.09)",
                     "rgba(0, 194, 146,0.9)",
                 ]
 
@@ -325,11 +325,11 @@
             datasets: [{
                 data: ['{{ $pnbp_hewan_domas }}', '{{ $pnbp_tumbuhan_domas  }}'],
                 backgroundColor: [
-                    "rgba(153, 102, 255, 0.9)",
+                    "rgba(0,0,0,.09)",
                     "rgba(0, 194, 146, 0.9)",
                 ],
                 hoverBackgroundColor: [
-                    "rgba(153, 102, 255, 0.9)",
+                    "rgba(0,0,0,.09)",
                     "rgba(0, 194, 146, 0.9)",
                 ]
 

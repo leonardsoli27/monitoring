@@ -54,7 +54,7 @@ class EksporTumbuhanController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'nama_komoditas' => 'required|min:3',
+            'nama_komoditas' => 'required',
             'jumlah' => 'required',
             'satuan' => 'required']);
 
@@ -64,14 +64,26 @@ class EksporTumbuhanController extends Controller
 
         $wilker = auth()->user()->lokasi;
 
-        for ($i=0; $i < $jmlEksporTbh; $i++) {
-            $form_edit = array(
-                'id_komoditas_tumbuhan' => $request->id[$i],
-                'nama_komoditas' => $request->nama_komoditas[$i],
-                'satuan_komoditas' => $request->satuan[$i]
-            );
-            KomoditasTumbuhan::where('id_komoditas_tumbuhan', $request->id[$i])
-                            ->where('asal_wilker', $wilker)->update($form_edit);
+        if (auth()->user()->username == 'superviser') {
+            for ($i=0; $i < $jmlEksporTbh; $i++) {
+                $form_edit = array(
+                    'id_komoditas_tumbuhan' => $request->id[$i],
+                    'nama_komoditas' => $request->nama_komoditas[$i],
+                    'satuan_komoditas' => $request->satuan[$i]
+                );
+                KomoditasTumbuhan::where('id_komoditas_tumbuhan', $request->id[$i])
+                                ->update($form_edit);
+            }
+        } else {
+            for ($i=0; $i < $jmlEksporTbh; $i++) {
+                $form_edit = array(
+                    'id_komoditas_tumbuhan' => $request->id[$i],
+                    'nama_komoditas' => $request->nama_komoditas[$i],
+                    'satuan_komoditas' => $request->satuan[$i]
+                );
+                KomoditasTumbuhan::where('id_komoditas_tumbuhan', $request->id[$i])
+                                ->where('asal_wilker', $wilker)->update($form_edit);
+            }
         }
 
         alert()->success('Berhasil','Data Berhasil Diedit.');

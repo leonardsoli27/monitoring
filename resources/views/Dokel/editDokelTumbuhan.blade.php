@@ -28,7 +28,8 @@
                                 <tr>
                                     <td>
                                         <div class="mb-2 col-auto">
-                                            <input type="hidden" name="id[]" value="{{ $item->id_komoditas_tumbuhan }}">
+                                            <input type="hidden" name="id[]" id="id"
+                                                value="{{ $item->id_komoditas_tumbuhan }}">
                                             <input type="text" class="form-control" name="nama_komoditas[]"
                                                 id="nama_komoditas" value="{{ $item->nama_komoditas }}">
                                         </div>

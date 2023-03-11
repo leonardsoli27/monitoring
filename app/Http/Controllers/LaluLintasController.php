@@ -64,7 +64,7 @@ class LaluLintasController extends Controller
     public function store_t(Request $request)
     {
         if (auth()->user()->username == 'superviser') {
-            return abort(403,'Anda tidak punya akses ke halaman ini');
+            return abort(403,'A nda tidak punya akses ke halaman ini');
         }
 
         $request->validate(["file_tumbuhan" => "required|mimes:xls,xlsx"]);

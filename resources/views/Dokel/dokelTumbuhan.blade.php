@@ -6,7 +6,7 @@
 
 <style>
     div.dataTables_wrapper {
-        width: 910px;
+        width: 1400px;
         margin: 0 auto;
     }
 

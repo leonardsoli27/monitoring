@@ -62,14 +62,26 @@ class ImporTumbuhanController extends Controller
 
         $wilker = auth()->user()->lokasi;
 
-        for ($i=0; $i < $jmlImporTbh; $i++) {
-            $form_edit = array(
-                'id_komoditas_tumbuhan' => $request->id[$i],
-                'nama_komoditas' => $request->nama_komoditas[$i],
-                'satuan_komoditas' => $request->satuan[$i]
-            );
-            KomoditasTumbuhan::where('id_komoditas_tumbuhan', $request->id[$i])
-                            ->where('asal_wilker', $wilker)->update($form_edit);
+        if (auth()->user()->username) {
+            for ($i=0; $i < $jmlImporTbh; $i++) {
+                $form_edit = array(
+                    'id_komoditas_tumbuhan' => $request->id[$i],
+                    'nama_komoditas' => $request->nama_komoditas[$i],
+                    'satuan_komoditas' => $request->satuan[$i]
+                );
+                KomoditasTumbuhan::where('id_komoditas_tumbuhan', $request->id[$i])
+                                ->update($form_edit);
+            }
+        } else {
+            for ($i=0; $i < $jmlImporTbh; $i++) {
+                $form_edit = array(
+                    'id_komoditas_tumbuhan' => $request->id[$i],
+                    'nama_komoditas' => $request->nama_komoditas[$i],
+                    'satuan_komoditas' => $request->satuan[$i]
+                );
+                KomoditasTumbuhan::where('id_komoditas_tumbuhan', $request->id[$i])
+                                ->where('asal_wilker', $wilker)->update($form_edit);
+            }
         }
 
         alert()->success('Berhasil','Data Berhasil Diedit.');

@@ -66,14 +66,26 @@ class DomasHewanController extends Controller
 
         $wilker = auth()->user()->lokasi;
 
-        for ($i=0; $i < $jml_edit; $i++) {
-            $form_edit = array(
-                'id_komoditas_hewan' => $request->id[$i],
-                'nama_komoditas' => $request->nama_komoditas[$i],
-                'satuan_komoditas' => $request->satuan[$i]
-            );
-            KomoditasHewan::where('id_komoditas_hewan', $request->id[$i])
-                            ->where('asal_wilker', $wilker)->update($form_edit);
+        if (auth()->user()->username == 'superviser') {
+            for ($i=0; $i < $jml_edit; $i++) {
+                $form_edit = array(
+                    'id_komoditas_hewan' => $request->id[$i],
+                    'nama_komoditas' => $request->nama_komoditas[$i],
+                    'satuan_komoditas' => $request->satuan[$i]
+                );
+                KomoditasHewan::where('id_komoditas_hewan', $request->id[$i])
+                                ->update($form_edit);
+            }
+        } else {
+            for ($i=0; $i < $jml_edit; $i++) {
+                $form_edit = array(
+                    'id_komoditas_hewan' => $request->id[$i],
+                    'nama_komoditas' => $request->nama_komoditas[$i],
+                    'satuan_komoditas' => $request->satuan[$i]
+                );
+                KomoditasHewan::where('id_komoditas_hewan', $request->id[$i])
+                                ->where('asal_wilker', $wilker)->update($form_edit);
+            }
         }
 
         alert()->success('Berhasil','Data Berhasil Diedit.');

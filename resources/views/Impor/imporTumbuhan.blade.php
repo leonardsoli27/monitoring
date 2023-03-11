@@ -6,7 +6,7 @@
 
 <style>
     div.dataTables_wrapper {
-        width: 910px;
+        width: 1400px;
         margin: 0 auto;
     }
 
@@ -30,48 +30,52 @@
                             Data Terpilih</button>
                     </div>
                 </div>
-                <div class="table-responsive">
-                    <hr class="mb-4 ml-3 mr-3">
-                    <table id="table-impor-t" class="table table-striped table-bordered display nowrap">
-                        <thead>
-                            <tr>
-                                <th><input type="checkbox" id="head-cb"></th>
-                                @if (auth()->user()->username == 'superviser')
-                                <td>Nama Wilker</td>
-                                @endif
-                                <th>Tanggal</th>
-                                <th>Negara Asal</th>
-                                <th>Negara Tujuan</th>
-                                <th>Jenis Komoditas</th>
-                                <th>Nama Komoditas</th>
-                                <th>Jumlah</th>
-                                <th>Satuan</th>
-                                <th>Nilai Komoditas</th>
-                                <th>PNBP</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($importumbuhan as $item)
-                            <tr>
-                                <td>
-                                    <input type="checkbox" class="cb-body" value="{{ $item->id_komoditas_tumbuhan }}">
-                                </td>
-                                @if (auth()->user()->username == 'superviser')
-                                <td>{{ $item->asal_wilker }}</td>
-                                @endif
-                                <td>{{ date('d F Y', strtotime($item->tgl_kegiatan)) }}</td>
-                                <td>{{ $item->asal }}</td>
-                                <td>{{ $item->tujuan }}</td>
-                                <td>{{ $item->jenis_komoditas }}</td>
-                                <td>{{ $item->nama_komoditas }}</td>
-                                <td>{{ number_format($item->jml_komoditas) }}</td>
-                                <td>{{ $item->satuan_komoditas }}</td>
-                                <td>Rp {{ number_format($item->harga_komoditas) }}</td>
-                                <td>Rp {{ number_format($item->tot_pnbp) }}</td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="table-responsive">
+                            <hr class="mb-4 ml-3 mr-3">
+                            <table id="table-impor-t" class="table table-striped table-bordered display nowrap">
+                                <thead>
+                                    <tr>
+                                        <th><input type="checkbox" id="head-cb"></th>
+                                        @if (auth()->user()->username == 'superviser')
+                                        <td>Nama Wilker</td>
+                                        @endif
+                                        <th>Tanggal</th>
+                                        <th>Negara Asal</th>
+                                        <th>Negara Tujuan</th>
+                                        <th>Jenis Komoditas</th>
+                                        <th>Nama Komoditas</th>
+                                        <th>Jumlah</th>
+                                        <th>Satuan</th>
+                                        <th>Nilai Komoditas</th>
+                                        <th>PNBP</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($importumbuhan as $item)
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" class="cb-body" value="{{ $item->id_komoditas_tumbuhan }}">
+                                        </td>
+                                        @if (auth()->user()->username == 'superviser')
+                                        <td>{{ $item->asal_wilker }}</td>
+                                        @endif
+                                        <td>{{ date('d F Y', strtotime($item->tgl_kegiatan)) }}</td>
+                                        <td>{{ $item->asal }}</td>
+                                        <td>{{ $item->tujuan }}</td>
+                                        <td>{{ $item->jenis_komoditas }}</td>
+                                        <td>{{ $item->nama_komoditas }}</td>
+                                        <td>{{ number_format($item->jml_komoditas) }}</td>
+                                        <td>{{ $item->satuan_komoditas }}</td>
+                                        <td>Rp {{ number_format($item->harga_komoditas) }}</td>
+                                        <td>Rp {{ number_format($item->tot_pnbp) }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

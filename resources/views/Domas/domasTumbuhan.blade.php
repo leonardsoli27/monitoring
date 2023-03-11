@@ -6,7 +6,7 @@
 
 <style>
     div.dataTables_wrapper {
-        width: 910px;
+        width: 1400px;
         margin: 0 auto;
     }
 
@@ -83,7 +83,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><strong>Hapus Data DOKEL Tumbuhan</strong></h5>
+                <h5 class="modal-title" id="exampleModalLabel"><strong>Hapus Data DOMAS Tumbuhan</strong></h5>
             </div>
             <div class="modal-body">
                 <p>Anda Yakin Ingin Menghapus Data DOMAS Tumbuhan Tersebut</p>
